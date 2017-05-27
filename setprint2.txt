@@ -1,0 +1,2 @@
+E:\Sample pics\Input - Copy.csv,1,samplebarcode.pdf
+C:\Users\GRomuga\Downloads\Syngeta\Syngeta\Import\Input.csv,nganga.pdf

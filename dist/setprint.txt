@@ -1,0 +1,2 @@
+C:\Users\GRomuga\Downloads\QRSyngenta\QRSyngenta\Import\Input.csv,1,samplebarcode.pdf
+E:\Projects\QRSyngenta - New\TestApp\Win32\Debug\Import\Input - New.csv,nganga.pdf
