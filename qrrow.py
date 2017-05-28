@@ -189,10 +189,9 @@ def _read_csv(fname,sw):
     in1,in2,in3,in4 = 0,1,2,3
     inc = 4
 
-    for idx_input in range(round(row_count)):
-        
+    for idx_input in range(int(round(row_count))):        
+        #print (idx_input)
         _create_qrcode(in1,in2,in3,in4)
-       
         in1 = in1 + inc
         in2 = in2 + inc
         in3 = in3 + inc
