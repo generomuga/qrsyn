@@ -32,7 +32,6 @@ if not os.path.exists(directory):
 
 #c = canvas.Canvas(directory+'\\'+'Syngenta_Packet_Print.pdf', pagesize=letter)
 c = canvas.Canvas(directory+'\\'+filename, pagesize=letter)
-
 c.setPageSize((400,200)) 
 
 def _read_csv(fname,highAbbrc):
@@ -43,7 +42,6 @@ def _read_csv(fname,highAbbrc):
     for i,line_csv in enumerate(file_csv):
         
         if i > 0:
-
             list_csv = line_csv.strip().split(',')
 
             crpcd = list_csv[0]
@@ -62,7 +60,6 @@ def _read_csv(fname,highAbbrc):
             discl = list_csv[13]
             label = list_csv[14]
 
-            print (uuid)
             #print (crpcd+' '+matid+' '+hname+' '+abbrc+' '+cgene+' '+admnc+' '+polid+' '+lotid+' '+gencd+' '+fptid+' '+mcnbd+' '+mvrmk+' '+mltst+' '+mstsl+' '+label)
             #_create_barcodes(matid,lotid,admnc,hname,fptid,cgene,mcnbd,crpcd,gencd)           
             _create_barcodes(crpcd,matid,hname,abbrc,cgene,admnc,lotid,gencd,fptid,uuid,altid,mltst,treat,discl,label,highAbbrc)           
@@ -172,7 +169,6 @@ def read_settings():
             directory_input = list_set[0]
             highAbbrc = list_set[2]
             #switch = list_set[1]
-            print (highAbbrc)
 
     #_read_csv(directory_input,switch)
     _read_csv(directory_input,highAbbrc)
