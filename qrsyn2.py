@@ -200,6 +200,10 @@ def _createBarcode(in1,in2,in3,in4):
     # draw a QR code
     #qr_matid = qr.QrCodeWidget(matid)
     #bounds = qr_matid.getBounds()
+
+    buffQrVer = 8
+    buffQrHor = 0
+
     if in1 >= 0:
 
         crpcd,matid,hname,abbrc,cgene,admnc,lotid,gencd,fptid,uuid,altid,mltst,treat,discl,label,highAbbrc = list_input[in1].split(',')
@@ -222,18 +226,22 @@ def _createBarcode(in1,in2,in3,in4):
         #renderPDF.draw(qmatid, c, 110, 10)
 
         #qrcode for uuid
-        renderPDF.draw(quuid, c, 5,300)
+        renderPDF.draw(quuid, c, 5,300+buffQrVer)
         
-        '''
-        
-        #label matid
-        c.setFont('Helvetica',20)
-        c.drawString(90,165,matid)
-        
-        #label lotid
+        #label number
         c.setFont('Helvetica',12)
-        c.drawString(20,100,lotid)
+        c.drawString(15,375+buffQrVer,str(in1+1))
+
+        #label matid
+        c.setFont('Helvetica',15)
+        c.drawString(70,375+buffQrVer,matid)
         
+        #label for admnc
+        c.setFont('Helvetica',12)
+        c.drawString(90,335+buffQrVer,admnc)
+
+
+        '''
         #label for highname
         if highAbbrc == '0':
             c.setFont('Helvetica',12)
@@ -289,269 +297,6 @@ def _createBarcode(in1,in2,in3,in4):
         '''
         #for new page
 
-    if in2 >= 0:
-
-        crpcd,matid,hname,abbrc,cgene,admnc,lotid,gencd,fptid,uuid,altid,mltst,treat,discl,label,highAbbrc = list_input[in2].split(',')
-
-        qr_uuid = qr.QrCodeWidget(uuid)
-        bounds = qr_uuid.getBounds()
-            
-        width = bounds[2] - bounds[0]
-        height = bounds[3] - bounds[1]
-       
-        #size of the drawing
-        #qmatid = Drawing(10, 10, transform=[80./width,0,0,80./height,0,0])
-        #qlotid = Drawing(45, 45, transform=[80./width,0,0,80./height,0,0])
-        #qmatid.add(qr_matid)
-
-        quuid = Drawing(45, 45, transform=[80./width,0,0,80./height,0,0])
-        quuid.add(qr_uuid)
-     
-        #qrcode for matid
-        #renderPDF.draw(qmatid, c, 110, 10)
-
-        #qrcode for uuid
-        renderPDF.draw(quuid, c, 5,200)
-        
-        '''
-        
-        #label matid
-        c.setFont('Helvetica',20)
-        c.drawString(90,165,matid)
-        
-        #label lotid
-        c.setFont('Helvetica',12)
-        c.drawString(20,100,lotid)
-        
-        #label for highname
-        if highAbbrc == '0':
-            c.setFont('Helvetica',12)
-            c.drawString(20,80,abbrc)
-        else:
-            c.setFont('Helvetica',12)
-            c.drawString(20,80,hname)
-
-        #label for fptid
-        c.setFont('Helvetica',12)
-        c.drawString(20,60,fptid)
-
-        #label for admnc 
-        c.setFont('Helvetica',16)
-        c.drawString(20,40,admnc)
-        
-        #label for treatment
-        c.setFont('Helvetica',12)
-        c.drawString(20,20,treat)
-     
-        #label for altid
-        c.setFont('Helvetica',12)
-        c.drawString(200,120,altid)
-        
-        #label for cgenes
-        c.setFont('Helvetica',12)
-        c.drawString(200,100,cgene)
-        
-        #label for crpcd
-        c.setFont('Helvetica',12)
-        c.drawString(270,165,crpcd)
-
-        #label for gencd
-        c.setFont('Helvetica',12)
-        c.drawString(200,60,gencd)
-
-        #label for disclaimer
-        c.setFont('Helvetica',10)
-        c.drawString(200,40,discl)
-        '''
-        '''
-        #label for trial info
-        #c.setFont('Helvetica',14)
-        #c.drawString(80,50,trian)
-
-        #label for entry no 
-        #c.setFont('Helvetica',14)
-        #c.drawString(80,30,'ENT.NO.')
-
-        #label for entry no value
-        #c.setFont('Helvetica',14)
-        #c.drawString(140,30,entnn)
-        '''
-
-    if in3 >= 0:
-
-        crpcd,matid,hname,abbrc,cgene,admnc,lotid,gencd,fptid,uuid,altid,mltst,treat,discl,label,highAbbrc = list_input[in3].split(',')
-
-        qr_uuid = qr.QrCodeWidget(uuid)
-        bounds = qr_uuid.getBounds()
-            
-        width = bounds[2] - bounds[0]
-        height = bounds[3] - bounds[1]
-       
-        #size of the drawing
-        #qmatid = Drawing(10, 10, transform=[80./width,0,0,80./height,0,0])
-        #qlotid = Drawing(45, 45, transform=[80./width,0,0,80./height,0,0])
-        #qmatid.add(qr_matid)
-
-        quuid = Drawing(45, 45, transform=[80./width,0,0,80./height,0,0])
-        quuid.add(qr_uuid)
-     
-        #qrcode for matid
-        #renderPDF.draw(qmatid, c, 110, 10)
-
-        #qrcode for uuid
-        renderPDF.draw(quuid, c, 5,100)
-        
-        '''
-        
-        #label matid
-        c.setFont('Helvetica',20)
-        c.drawString(90,165,matid)
-        
-        #label lotid
-        c.setFont('Helvetica',12)
-        c.drawString(20,100,lotid)
-        
-        #label for highname
-        if highAbbrc == '0':
-            c.setFont('Helvetica',12)
-            c.drawString(20,80,abbrc)
-        else:
-            c.setFont('Helvetica',12)
-            c.drawString(20,80,hname)
-
-        #label for fptid
-        c.setFont('Helvetica',12)
-        c.drawString(20,60,fptid)
-
-        #label for admnc 
-        c.setFont('Helvetica',16)
-        c.drawString(20,40,admnc)
-        
-        #label for treatment
-        c.setFont('Helvetica',12)
-        c.drawString(20,20,treat)
-     
-        #label for altid
-        c.setFont('Helvetica',12)
-        c.drawString(200,120,altid)
-        
-        #label for cgenes
-        c.setFont('Helvetica',12)
-        c.drawString(200,100,cgene)
-        
-        #label for crpcd
-        c.setFont('Helvetica',12)
-        c.drawString(270,165,crpcd)
-
-        #label for gencd
-        c.setFont('Helvetica',12)
-        c.drawString(200,60,gencd)
-
-        #label for disclaimer
-        c.setFont('Helvetica',10)
-        c.drawString(200,40,discl)
-        '''
-        '''
-        #label for trial info
-        #c.setFont('Helvetica',14)
-        #c.drawString(80,50,trian)
-
-        #label for entry no 
-        #c.setFont('Helvetica',14)
-        #c.drawString(80,30,'ENT.NO.')
-
-        #label for entry no value
-        #c.setFont('Helvetica',14)
-        #c.drawString(140,30,entnn)
-        '''
-
-    if in4 >= 0:
-
-        crpcd,matid,hname,abbrc,cgene,admnc,lotid,gencd,fptid,uuid,altid,mltst,treat,discl,label,highAbbrc = list_input[in4].split(',')
-
-        qr_uuid = qr.QrCodeWidget(uuid)
-        bounds = qr_uuid.getBounds()
-            
-        width = bounds[2] - bounds[0]
-        height = bounds[3] - bounds[1]
-       
-        #size of the drawing
-        #qmatid = Drawing(10, 10, transform=[80./width,0,0,80./height,0,0])
-        #qlotid = Drawing(45, 45, transform=[80./width,0,0,80./height,0,0])
-        #qmatid.add(qr_matid)
-
-        quuid = Drawing(45, 45, transform=[80./width,0,0,80./height,0,0])
-        quuid.add(qr_uuid)
-     
-        #qrcode for matid
-        #renderPDF.draw(qmatid, c, 110, 10)
-
-        #qrcode for uuid
-        renderPDF.draw(quuid, c, 5,10)
-        
-        '''
-        
-        #label matid
-        c.setFont('Helvetica',20)
-        c.drawString(90,165,matid)
-        
-        #label lotid
-        c.setFont('Helvetica',12)
-        c.drawString(20,100,lotid)
-        
-        #label for highname
-        if highAbbrc == '0':
-            c.setFont('Helvetica',12)
-            c.drawString(20,80,abbrc)
-        else:
-            c.setFont('Helvetica',12)
-            c.drawString(20,80,hname)
-
-        #label for fptid
-        c.setFont('Helvetica',12)
-        c.drawString(20,60,fptid)
-
-        #label for admnc 
-        c.setFont('Helvetica',16)
-        c.drawString(20,40,admnc)
-        
-        #label for treatment
-        c.setFont('Helvetica',12)
-        c.drawString(20,20,treat)
-     
-        #label for altid
-        c.setFont('Helvetica',12)
-        c.drawString(200,120,altid)
-        
-        #label for cgenes
-        c.setFont('Helvetica',12)
-        c.drawString(200,100,cgene)
-        
-        #label for crpcd
-        c.setFont('Helvetica',12)
-        c.drawString(270,165,crpcd)
-
-        #label for gencd
-        c.setFont('Helvetica',12)
-        c.drawString(200,60,gencd)
-
-        #label for disclaimer
-        c.setFont('Helvetica',10)
-        c.drawString(200,40,discl)
-        '''
-        '''
-        #label for trial info
-        #c.setFont('Helvetica',14)
-        #c.drawString(80,50,trian)
-
-        #label for entry no 
-        #c.setFont('Helvetica',14)
-        #c.drawString(80,30,'ENT.NO.')
-
-        #label for entry no value
-        #c.setFont('Helvetica',14)
-        #c.drawString(140,30,entnn)
-        '''
 
     c.showPage()
 
